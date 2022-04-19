@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<script>
+    function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /*loop through a collection of all HTML elements:*/
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+                /*make an HTTP request using the attribute value as the file name:*/
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                        }
+                        if (this.status == 404) {
+                            elmnt.innerHTML = "Page not found.";
+                        }
+                        /*remove the attribute, and call this function once more:*/
+                        elmnt.removeAttribute("w3-include-html");
+                        includeHTML();
+                    }
+                }
+                xhttp.open("GET", file, true);
+                xhttp.send();
+                /*exit the function:*/
+                return;
+            }
+        }
+    };
+</script>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Park One Realty | Home</title>
+
+    <link type="text/css" rel="stylesheet" href="css/selectric.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.selectric.js"></script>
+    <script type="text/javascript" src="scripts/common-scripts.js"></script>
+</head>
+
+<body>
+    <div class="main-wrap">
+        <!-- Begin header
+        ================= -->
+        <header class="header-area" id="headerMain"></header>
+        
+        <!-- End header -->
+
+        <!-- Begin main-content
+        ======================= -->
+        <section class="main-content home-content">
+            <!-- Begin home-hero -->
+            <section class="home-hero" style="background-image: url(images/austin-home-interior.jpg)">
+                <div class="common-wrap clear">
+                    <h1>Your Dream Home Clould Be a Click Away</h1>
+                    <h2>Start your search today!</h2>
+                    <div class="search-wrap clear">
+                        <form action="#" method="post">
+                            <select class="styled-select">
+                                <option value="">Buy</option>
+                                <option value="">Buy-2</option>
+                                <option value="">Buy-3</option>
+                            </select>
+                            <input type="text" value="Enter City, Neighborhood, Zip, Address, School, MLS#">
+                            <input type="submit" value="Search" class="btn dark-yellow redial-btn">
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- End home-hero -->
+
+            <!-- Begin agent-features -->
+            <section class="agent-features-wrap">
+                <div class="common-wrap clear">
+                    <div class="agent-feature-item">
+                        <figure>
+                            <img src="images/free-buyers-agent.jpg" alt="" class="onload-animation animate-from-bottom">
+                        </figure>
+                        <h5>Free Help With Your Home Search</h5>
+                        <p>Did you know you can get the help of an experienced buyer’s agent for free? That’s right. It’s doesn’t cost you a dime to have an agent help you find and purchase a home!</p>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn redial-btn light-blue-tranparent-btn small-btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="agent-feature-item">
+                        <figure>
+                            <img src="images/my-home-value.jpg" alt="" class="onload-animation  animate-from-bottom">
+                        </figure>
+                        <h5>Find Out The Value of Your Home</h5>
+                        <p>Want to find out what your home is worth? One of our experienced agents would be happy to run a free, no obligation market analysis for you!</p>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn redial-btn light-blue-tranparent-btn small-btn">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="agent-feature-item">
+                        <figure>
+                            <img src="images/realtor-austin-tx.jpg" alt="" class="onload-animation  animate-from-bottom">
+                        </figure>
+                        <h5>Join Us! We’re Hiring Agents</h5>
+                        <p>Whether you’re looking for a new brokerage to help boost your business, or you just want a better commission split, we’d love to chat!</p>
+                        <div class="btn-wrap">
+                            <a href="#" class="btn redial-btn light-blue-tranparent-btn small-btn">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End agent-features -->
+
+            <!-- Begin agent-service -->
+            <section class="agent-service-wrap ">
+                <div class="common-wrap clear">
+                    <div class="section-title">
+                        <h2 class="title-graphics">Exceptional Realtors</h2>
+                        <p>Put one of our experienced, dedicated Realtors to work for you!</p>
+                    </div>
+                    <div class="agent-service-item-wrap">
+                        <div class="agent-service-item">
+                            <figure>
+                                <img src="images/service.gif" alt="">
+                            </figure>
+                            <div class="agent-service-item-content">
+                                <h6>Superior Service</h6>
+                                <p>Our dedicated, hard working agents are committed to providing a superior level of service and will be there every step of the way for you.</p>
+                            </div>
+                        </div>
+                        <div class="agent-service-item">
+                            <figure>
+                                <img src="images/local-realtor-experts.gif" alt="">
+                            </figure>
+                            <div class="agent-service-item-content">
+                                <h6>Local Experts</h6>
+                                <p>Our experienced agents are local experts and can advise you on local schools, commute times, crime rates, market trends, new developments, etc. </p>
+                            </div>
+                        </div>
+                        <div class="agent-service-item">
+                            <figure>
+                                <img src="images/focused-clients.gif" alt="">
+                            </figure>
+                            <div class="agent-service-item-content">
+                                <h6>Client Focused</h6>
+                                <p>Our agents will always put your best interest first. We will remain completely focused on your needs and wants throughout the real estate transaction.</p>
+                            </div>
+                        </div>
+                        <div class="agent-service-item">
+                            <figure>
+                                <img src="images/tech-savy-agents.gif" alt="">
+                            </figure>
+                            <div class="agent-service-item-content">
+                                <h6>Tech Savy</h6>
+                                <p>Our agents will use the latest real estate technology to help make your real estate experience as efficient and enjoyable as possible.</p>
+                            </div>
+                        </div>
+                        <div class="agent-service-item">
+                            <figure>
+                                <img src="images/experienced-realtors.gif" alt="">
+                            </figure>
+                            <div class="agent-service-item-content">
+                                <h6>Experienced</h6>
+                                <p>Our agents are experienced and knowledgeable agents who will provide you with sound real estate advice and expert assistance.</p>
+                            </div>
+                        </div>
+                        <div class="agent-service-item">
+                            <figure>
+                                <img src="images/strong-negociators.gif" alt="">
+                            </figure>
+                            <div class="agent-service-item-content">
+                                <h6>Skilled Negociators</h6>
+                                <p>Our agents have outstanding negotiation skills to help ensure you the best overall outcome in your real estate sale or purchase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End agent-serivce -->
+
+            <!-- Begin client-reputation -->
+            <section class="client-reputaion">
+                <div class="common-wrap clear">
+                    <div class="client-figure-wrap">
+                        <figure class="animate animate-from-bottom">
+                            <img src="images/happy-real-estate-clients.jpg" alt="">
+                        </figure>
+                        <h2>A Reputation You Can <br>Count On</h2>
+                        <p>When it comes to something so important as the sale or purchase of a home, you need to have an agent by your side that you can trust and count on.</p>
+                    </div>
+                    <div class="client-reputation-item">
+                        <div class="reputation-item">
+                            <h6>Respect</h6>
+                            <p>We respect the hopes and goals of our clients and always strive to help them reach them.</p>
+                        </div>
+                        <div class="reputation-item">
+                            <h6>Value</h6>
+                            <p>We value the opportunity to represent our clients on their real estate sales and purchases, and we’ll never take their trust for granted.</p>
+                        </div>
+                        <div class="reputation-item">
+                            <h6>Integrity</h6>
+                            <p>We show integrity is all that we do and always look out for our clients’ best interests throughout the process.</p>
+                        </div>
+                        <div class="reputation-item">
+                            <h6>Professionalism</h6>
+                            <p>We strive to be leading experts in the real estate field and to offer our clients the most professional service possible.</p>
+                        </div>
+                        <div class="reputation-item">
+                            <h6>Dedication</h6>
+                            <p>We are dedicated to our clients and will work relentlessly on their behalf to ensure they reach their real estate goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End client-reputation -->
+            <!-- agent form -->
+            <section class="agent-form">
+                <div class="common-wrap clear">
+                    <div class="section-title">
+                        <h2>Want to Work With a <br>Great Real Estate Agent?</h2>
+                        <p>We'd love to chat about the services we can offer!</p>
+                    </div>
+                    <div class="footer-form">
+                        <form action="#" method="post">
+                            <div class="info-input">
+                                <div class="input-row">
+                                    <input type="text" value="Name">
+                                </div>
+                                <div class="input-row">
+                                    <input type="text" value="Email">
+                                </div>
+                                <div class="input-row">
+                                    <input type="text" value="Phone">
+                                </div>
+                            </div>
+                            <div class="input-row msg">
+                                <textarea>Message</textarea>
+                            </div>
+                            <div class="submit-wrap">
+                                <input type="submit" value="SEND" class="btn small-btn redial-btn green-btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <!-- End agen form -->
+            <section class="protection-wrap">
+                <div class="common-wrap clear">
+                    <a href="#">TREC Consumer Protection Notice</a>
+                    <a href="#">TREC Information About Brokerage Service</a>
+                </div>
+            </section>
+        </section>
+        <!-- End main-contain -->
+
+        <!-- Begin footer-section
+        ========================== -->
+       <footer class="footer-wrap" id="footerMain"></footer>
+        
+        <!-- End footer- section -->
+    </div>
+    <script>
+        includeHTML();
+    </script>
+</body>
+
+</html>
